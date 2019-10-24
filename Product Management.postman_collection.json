@@ -1,0 +1,592 @@
+{
+	"info": {
+		"_postman_id": "57f773fd-dde6-4ff0-bdcc-8fc9f9a0b7ed",
+		"name": "Product Management",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Category",
+			"item": [
+				{
+					"name": "list",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX25hbWUiOiJtaW1pbiIsInVzZXJfZnVsbG5hbWUiOiJNYXJpbyIsInJvbGUiOiJhZG1pbiIsImFjY2VzcyI6eyJtZW51X25hbWUiOiJiYWtzaSJ9LCJ0aW1lc3RhbXAiOjE1NzE4ODg5OTB9.m-gHVOj5-OX7_QhZGQ56NizgmrSzzr2EtmtrrD9TBXw",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost/product_management/category/list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"product_management",
+								"category",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX25hbWUiOiJtaW1pbiIsInVzZXJfZnVsbG5hbWUiOiJNYXJpbyIsInJvbGUiOiJhZG1pbiIsImFjY2VzcyI6eyJtZW51X25hbWUiOiJiYWtzaSJ9LCJ0aW1lc3RhbXAiOjE1NzE4ODg5OTB9.m-gHVOj5-OX7_QhZGQ56NizgmrSzzr2EtmtrrD9TBXw",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "category_name",
+									"value": "fsgtdzhf",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost/product_management/category/add",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"product_management",
+								"category",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list by category_parent",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX25hbWUiOiJtaW1pbiIsInVzZXJfZnVsbG5hbWUiOiJNYXJpbyIsInJvbGUiOiJhZG1pbiIsImFjY2VzcyI6eyJtZW51X25hbWUiOiJiYWtzaSJ9LCJ0aW1lc3RhbXAiOjE1NzE4ODg5OTB9.m-gHVOj5-OX7_QhZGQ56NizgmrSzzr2EtmtrrD9TBXw",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost/product_management/category/list? category_parent=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"product_management",
+								"category",
+								"list"
+							],
+							"query": [
+								{
+									"key": " category_parent",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add with category_parent",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX25hbWUiOiJtaW1pbiIsInVzZXJfZnVsbG5hbWUiOiJNYXJpbyIsInJvbGUiOiJhZG1pbiIsImFjY2VzcyI6eyJtZW51X25hbWUiOiJiYWtzaSJ9LCJ0aW1lc3RhbXAiOjE1NzE4ODg5OTB9.m-gHVOj5-OX7_QhZGQ56NizgmrSzzr2EtmtrrD9TBXw",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "category_name",
+									"value": "bakso",
+									"type": "text"
+								},
+								{
+									"key": "category_parent",
+									"value": "6",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost/product_management/category/add",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"product_management",
+								"category",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX25hbWUiOiJtaW1pbiIsInVzZXJfZnVsbG5hbWUiOiJNYXJpbyIsInJvbGUiOiJhZG1pbiIsImFjY2VzcyI6eyJtZW51X25hbWUiOiJiYWtzaSJ9LCJ0aW1lc3RhbXAiOjE1NzE4ODg5OTB9.m-gHVOj5-OX7_QhZGQ56NizgmrSzzr2EtmtrrD9TBXw",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "category_name",
+									"value": "edit",
+									"type": "text"
+								},
+								{
+									"key": "category_parent",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost/product_management/category/edit?category_id=6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"product_management",
+								"category",
+								"edit"
+							],
+							"query": [
+								{
+									"key": "category_id",
+									"value": "6"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX25hbWUiOiJtaW1pbiIsInVzZXJfZnVsbG5hbWUiOiJNYXJpbyIsInJvbGUiOiJhZG1pbiIsImFjY2VzcyI6eyJtZW51X25hbWUiOiJiYWtzaSJ9LCJ0aW1lc3RhbXAiOjE1NzE4ODg5OTB9.m-gHVOj5-OX7_QhZGQ56NizgmrSzzr2EtmtrrD9TBXw"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"url": {
+							"raw": "http://localhost/product_management/category/delete?category_id=5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"product_management",
+								"category",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "category_id",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "list",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX25hbWUiOiJtaW1pbiIsInVzZXJfZnVsbG5hbWUiOiJNYXJpbyIsInJvbGUiOiJhZG1pbiIsImFjY2VzcyI6eyJtZW51X25hbWUiOiJiYWtzaSJ9LCJ0aW1lc3RhbXAiOjE1NzE4ODg5OTB9.m-gHVOj5-OX7_QhZGQ56NizgmrSzzr2EtmtrrD9TBXw",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost/product_management/product/list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"product_management",
+								"product",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list by category_id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX25hbWUiOiJtaW1pbiIsInVzZXJfZnVsbG5hbWUiOiJNYXJpbyIsInJvbGUiOiJhZG1pbiIsImFjY2VzcyI6eyJtZW51X25hbWUiOiJiYWtzaSJ9LCJ0aW1lc3RhbXAiOjE1NzE4ODg5OTB9.m-gHVOj5-OX7_QhZGQ56NizgmrSzzr2EtmtrrD9TBXw",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost/product_management/product/list?category_id=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"product_management",
+								"product",
+								"list"
+							],
+							"query": [
+								{
+									"key": "category_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX25hbWUiOiJtaW1pbiIsInVzZXJfZnVsbG5hbWUiOiJNYXJpbyIsInJvbGUiOiJhZG1pbiIsImFjY2VzcyI6eyJtZW51X25hbWUiOiJiYWtzaSJ9LCJ0aW1lc3RhbXAiOjE1NzE4ODg5OTB9.m-gHVOj5-OX7_QhZGQ56NizgmrSzzr2EtmtrrD9TBXw",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "product_name",
+									"value": "mouse",
+									"type": "text"
+								},
+								{
+									"key": "product_description",
+									"value": "ini mouser",
+									"type": "text"
+								},
+								{
+									"key": "product_currency",
+									"value": "IDR",
+									"type": "text"
+								},
+								{
+									"key": "product_price",
+									"value": "10000",
+									"type": "text"
+								},
+								{
+									"key": "product_category",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost/product_management/product/add",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"product_management",
+								"product",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX25hbWUiOiJtaW1pbiIsInVzZXJfZnVsbG5hbWUiOiJNYXJpbyIsInJvbGUiOiJhZG1pbiIsImFjY2VzcyI6eyJtZW51X25hbWUiOiJiYWtzaSJ9LCJ0aW1lc3RhbXAiOjE1NzE4ODg5OTB9.m-gHVOj5-OX7_QhZGQ56NizgmrSzzr2EtmtrrD9TBXw",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "product_name",
+									"value": "mouse",
+									"type": "text"
+								},
+								{
+									"key": "product_description",
+									"value": "ini mouser edit",
+									"type": "text"
+								},
+								{
+									"key": "product_currency",
+									"value": "IDR",
+									"type": "text"
+								},
+								{
+									"key": "product_price",
+									"value": "10000",
+									"type": "text"
+								},
+								{
+									"key": "product_category",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost/product_management/product/edit?product_id=3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"product_management",
+								"product",
+								"edit"
+							],
+							"query": [
+								{
+									"key": "product_id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "upload_thumbnail",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX25hbWUiOiJtaW1pbiIsInVzZXJfZnVsbG5hbWUiOiJNYXJpbyIsInJvbGUiOiJhZG1pbiIsImFjY2VzcyI6eyJtZW51X25hbWUiOiJiYWtzaSJ9LCJ0aW1lc3RhbXAiOjE1NzE4ODg5OTB9.m-gHVOj5-OX7_QhZGQ56NizgmrSzzr2EtmtrrD9TBXw",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "product_thumbnail",
+									"type": "file",
+									"src": "/C:/Users/user/Pictures/ndfa.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost/product_management/product/upload?product_id=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"product_management",
+								"product",
+								"upload"
+							],
+							"query": [
+								{
+									"key": "product_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "image_loader",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX25hbWUiOiJtaW1pbiIsInVzZXJfZnVsbG5hbWUiOiJNYXJpbyIsInJvbGUiOiJhZG1pbiIsImFjY2VzcyI6eyJtZW51X25hbWUiOiJiYWtzaSJ9LCJ0aW1lc3RhbXAiOjE1NzE4ODg5OTB9.m-gHVOj5-OX7_QhZGQ56NizgmrSzzr2EtmtrrD9TBXw",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost/product_management/product/image_loader/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"product_management",
+								"product",
+								"image_loader",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX25hbWUiOiJtaW1pbiIsInVzZXJfZnVsbG5hbWUiOiJNYXJpbyIsInJvbGUiOiJhZG1pbiIsImFjY2VzcyI6eyJtZW51X25hbWUiOiJiYWtzaSJ9LCJ0aW1lc3RhbXAiOjE1NzE4ODg5OTB9.m-gHVOj5-OX7_QhZGQ56NizgmrSzzr2EtmtrrD9TBXw"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"url": {
+							"raw": "http://localhost/product_management/category/delete?category_id=5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"product_management",
+								"category",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "category_id",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "user_name",
+							"value": "test",
+							"type": "text"
+						},
+						{
+							"key": "user_password",
+							"value": "testdemo123",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/product_management/auth/token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"product_management",
+						"auth",
+						"token"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
