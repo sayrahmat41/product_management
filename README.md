@@ -41,23 +41,9 @@ Setup for existing projects
 
 You will need following files:
 
-**/application/config/jwt.php** <= Add **jwt_key** here
-**/application/helpers/authorization_helper.php
-/application/helpers/jwt_helper.php**
+Import sql to your database
+**/application/config/database.php** <= set up your database here
 
-In **/application/config/autoload.php** add 
-```
-$autoload['helper'] = array('url', 'form', 'jwt', "authorization");
-$autoload['config'] = array('jwt');
-```
-
-That's it. You are ready. Add your logic to generate token, eg.
-
-```
-$tokenData = array();
-$tokenData['id'] = 1; //TODO: Replace with data for token
-$output['token'] = AUTHORIZATION::generateToken($tokenData);
-```
 
 Please reply, if you need additional details. Happy coding!
 
