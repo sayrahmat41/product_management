@@ -243,7 +243,13 @@ class Product extends REST_Controller{
 
 		$this->set_response($output, REST_Controller::HTTP_OK);
 	}
-	function delete_get($product_id=''){
+	function delete_get(){
+		if ($this->input->get('product_id')){
+			$product_id=$this->input->get('product_id');
+		}
+		else{
+			$product_id='';
+		}
 		if ($product_id=='') {
 			$output['status']='false';
 			$output['message']='Unknown method';
