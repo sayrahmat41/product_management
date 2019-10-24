@@ -2,14 +2,15 @@
 class M_category extends CI_Model{
 
 	function delete_category($category_id){
-		$hsl=$this->db->query("DELETE FROM category where category_id='$this->db->escape($category_id)'");
+		$hsl=$this->db->query("DELETE FROM category where category_id=".$this->db->escape($category_id)."");
 		return $hsl;
 	}
 
-	function update_category($category_id,$category_name){
+	function update_category($category_id,$category_name,$category_parent){
 		$hsl=$this->db->query("UPDATE category set 
-			category_name='$category_name' 
-			where category_id='$this->db->escape($category_id)'");
+			category_name=".$this->db->escape($category_name).",
+			category_parent=".$this->db->escape($category_parent)."
+			where category_id=".$this->db->escape($category_id)."");
 		return $hsl;
 	}
 

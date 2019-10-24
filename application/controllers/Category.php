@@ -127,10 +127,14 @@ class Category extends REST_Controller{
 					$output['message']='Edit data Successfully';
 					$output['data']['category_name']=
 					$this->input->post('category_name');
+					$output['data']['category_parent']=
+					$this->input->post('category_parent');
 
 					$this->m_category->update_category(
 						$category_id,
-						$output['data']['category_name']
+						$output['data']['category_name'],
+						$output['data']['category_parent']
+
 					);
 				}
 				else{
@@ -151,7 +155,13 @@ class Category extends REST_Controller{
 
 		$this->set_response($output, REST_Controller::HTTP_OK);
 	}
-	function delete_get($category_id=''){
+	function delete_get(){
+		if ($this->input->get('category_id')){
+			$category_id=$this->input->get('category_id');
+		}
+		else{
+			$category_id='';
+		}
 		if ($category_id=='') {
 			$output['status']='false';
 			$output['message']='Unknown method';
