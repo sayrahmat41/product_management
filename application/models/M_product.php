@@ -23,6 +23,23 @@ class M_product extends CI_Model{
 		return $hsl;
 	}
 
+	
+	function update_thumbnail(
+		$product_id,
+		$product_thumbnail){
+		$hsl=$this->db->query("UPDATE product set 
+			product_thumbnail='$product_thumbnail'
+			where product_id='$product_id'");
+		return $hsl;
+	}
+
+
+
+	function get_image($product_id=''){
+		$hsl=$this->db->query("select * from product where product_id=".$product_id);
+		return $hsl->row_array(); 
+	}
+
 	function get_product($category_id=''){
 		$this->load->model('m_category');
 		if ($category_id!=''){
@@ -30,7 +47,7 @@ class M_product extends CI_Model{
 		}
 		else{
 			$filter="";
-			
+
 		}
 		$hsl=$this->db->query("select 
 			category.category_id,
@@ -48,6 +65,10 @@ class M_product extends CI_Model{
 		$final = $hsl->result_array(); 
 		$i=0;
 		foreach ($final as $hsl) {
+			if ($hsl['product_thumbnail']!=null) {
+				$final[$i]['product_thumbnail']=base_url().'product/image_loader/'.$hsl['product_id'];
+			}
+
 			$children=$this->m_category->get_category_child($hsl['product_category']);
 			$final[$i]['product_category']=array(
 				'category_id'=>$hsl['category_id'],

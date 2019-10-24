@@ -99,6 +99,83 @@ class Product extends REST_Controller{
 
 		$this->set_response($output, REST_Controller::HTTP_OK);
 	}
+
+	public function upload_post()
+	{
+		if ($this->input->get('product_id')){
+			$product_id=$this->input->get('product_id');
+		}
+		else{
+			$product_id='';
+		}
+		if ($product_id=='') {
+			$output['status']='false';
+			$output['message']='Unknown method';
+			$this->set_response($output, REST_Controller::HTTP_OK);
+			return;
+		}
+		$headers = $this->input->request_headers();
+		if (array_key_exists('Authorization', $headers) && !empty($headers['Authorization'])) {
+            //TODO: Change 'token_timeout' in application\config\jwt.php
+			$decodedToken = AUTHORIZATION::validateTimestamp($headers['Authorization']);
+            // return response if token is valid
+			if ($decodedToken != false) {
+				
+				$image=$this->m_product->get_image($product_id);
+
+				$config['upload_path']          = './uploads/';
+				$config['allowed_types']        = 'gif|jpg|png';
+				$config['max_size']             = 100;
+				$config['max_width']            = 1024;
+				$config['max_height']           = 768;
+
+				$this->load->library('upload', $config);
+
+				if ( ! $this->upload->do_upload('product_thumbnail'))
+				{
+					$error = array('error' => $this->upload->display_errors());
+					$output['status']='false';
+					$output['message']='Check your data';
+			//$this->load->view('upload_form', $error);
+				}
+				else
+				{
+					$data = array('upload_data' => $this->upload->data());
+					
+					$this->m_product->update_thumbnail(
+						$product_id,
+						$data['upload_data']['file_name']
+					);
+					$output['status']='true';
+					$output['message']='Upload image Successfully';
+			//$this->load->view('upload_success', $data);
+				}
+				$this->set_response($output, REST_Controller::HTTP_OK);
+
+
+			}
+			else
+			{
+				$output['status']='false';
+				$output['message']='Unauthorised';
+			}
+		}
+		else {
+			$output['status']='false';
+			$output['message']='Unauthorised';
+		}
+
+		$this->set_response($output, REST_Controller::HTTP_OK);
+
+
+	}
+	public function image_loader_get($product_id){
+		$image=$this->m_product->get_image($product_id);
+		$img = './uploads/'.$image['product_thumbnail'];
+
+		header('Content-Type: image/jpeg');
+		readfile($img);
+	}
 	function edit_post(){
 		if ($this->input->get('product_id')){
 			$product_id=$this->input->get('product_id');
